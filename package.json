@@ -1,0 +1,23 @@
+{
+  "name": "@nocom_bot/types_ts_plugin_a1",
+  "version": "0.10.0",
+  "description": "TypeScript definition for support package in A-Type plugin handler.",
+  "main": "",
+  "types": "index.d.ts",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NOCOM-BOT/types_ts_plugin_A1.git"
+  },
+  "author": "BadAimWeeb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NOCOM-BOT/types_ts_plugin_A1/issues"
+  },
+  "homepage": "https://github.com/NOCOM-BOT/types_ts_plugin_A1#readme",
+  "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "@types/node": "^18",
+    "typescript": "^4.7.4"
+  }
+}
