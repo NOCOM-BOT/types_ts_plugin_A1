@@ -50,12 +50,12 @@ declare module "@nocom_bot/nocom-atype-support" {
     export function exit(exitCode?: number, exitReason?: string): void;
     export function waitForModule(moduleNamespace: string, timeout: number): Promise<boolean>;
 
-    export const log = {
-        critical: (...data: any[]) => Promise<void>,
-        error: (...data: any[]) => Promise<void>,
-        warn: (...data: any[]) => Promise<void>,
-        info: (...data: any[]) => Promise<void>,
-        debug: (...data: any[]) => Promise<void>,
-        verbose: (...data: any[]) => Promise<void>
+    declare module log {
+        export function critical(...data: any[]): Promise<void>;
+        export function error(...data: any[]): Promise<void>;
+        export function warn(...data: any[]): Promise<void>;
+        export function info(...data: any[]): Promise<void>;
+        export function debug(...data: any[]): Promise<void>;
+        export function verbose(...data: any[]): Promise<void>;
     }
 }
