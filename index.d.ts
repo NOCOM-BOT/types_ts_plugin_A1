@@ -30,23 +30,44 @@ declare module "@nocom_bot/nocom-atype-support" {
         additionalInterfaceData?: any
     }
 
-    export function verifyPlugin(allow: boolean): void;
-    export function callFuncPlugin(namespace: string, funcName: string, ...args: any): Promise<any>;
-    export function registerFuncPlugin(funcName: string, funcCallTarget: Function): Promise<boolean>;
-    export function callAPI(moduleID: string, cmd: string, data: any): Promise<any>;
-    export function registerCommand(commandName: string, commandDescriptionAPI: (language: string) => {
-        args: string,
-        desc: string
-    }, commandCallback: (data: ICommandData) => Promise<{
+    export interface ICommandOutput {
         content: string,
         attachments: {
             filename?: string,
             data: Buffer | string
         }[],
         additionalInterfaceData?: any
-    }>, compatibility: string[]): Promise<boolean>;
+    }
 
-    export function registerCommandFuncPlugin(commandName: string, funcDescAPITarget: string, funcName: string, compatibility: string[]): Promise<boolean>;
+    export interface ICommandInfo {
+        args: {
+            fallback: string,
+            [ISOLanguageCode: string]: string
+        },
+        argsName?: string[],
+        description: {
+            fallback: string,
+            [ISOLanguageCode: string]: string
+        }
+    }
+
+    export function verifyPlugin(allow: boolean): void;
+    export function callFuncPlugin(namespace: string, funcName: string, ...args: any): Promise<any>;
+    export function registerFuncPlugin(funcName: string, funcCallTarget: Function): Promise<boolean>;
+    export function callAPI(moduleID: string, cmd: string, data: any): Promise<any>;
+    export function registerCommand(
+        commandName: string, 
+        commandInfo: ICommandInfo, 
+        commandCallback: (data: ICommandData) => Promise<ICommandOutput> | ICommandOutput, 
+        compatibility: string[]
+    ): Promise<boolean>;
+
+    export function registerCommandFuncPlugin(
+        commandName: string, 
+        commandInfo: ICommandInfo, 
+        funcName: string, 
+        compatibility: string[]
+    ): Promise<boolean>;
     export function exit(exitCode?: number, exitReason?: string): void;
     export function waitForModule(moduleNamespace: string, timeout: number): Promise<boolean>;
 
