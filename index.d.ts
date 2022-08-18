@@ -70,6 +70,12 @@ declare module "@nocom_bot/nocom-atype-support" {
     ): Promise<boolean>;
     export function exit(exitCode?: number, exitReason?: string): void;
     export function waitForModule(moduleNamespace: string, timeout: number): Promise<boolean>;
+    export function database(databaseID: number): {
+        get(table: string, key: string): Promise<any>,
+        set(table: string, key: string, data: any): Promise<boolean>,
+        delete(table: string, key: string): Promise<boolean>,
+        deleteTable(table: string): Promise<boolean>
+    }
 
     declare module log {
         export function critical(...data: any[]): Promise<void>;
