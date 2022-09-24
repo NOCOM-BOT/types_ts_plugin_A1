@@ -1,10 +1,13 @@
 {
   "name": "@nocom_bot/types_ts_plugin_a1",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "description": "TypeScript definition for support package in A-Type plugin handler.",
   "main": "",
   "types": "index.d.ts",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NOCOM-BOT/types_ts_plugin_A1.git"

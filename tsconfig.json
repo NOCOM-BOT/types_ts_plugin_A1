@@ -4,6 +4,7 @@
         "module": "esnext",
         "target": "es2021",
         "moduleResolution": "Node",
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "declaration": true
     }
 }

@@ -77,7 +77,7 @@ declare module "@nocom_bot/nocom-atype-support" {
         deleteTable(table: string): Promise<boolean>
     }
 
-    declare module log {
+    export module log {
         export function critical(...data: any[]): Promise<void>;
         export function error(...data: any[]): Promise<void>;
         export function warn(...data: any[]): Promise<void>;
